@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/sessionSetupFragment">
+
+    <fragment
+        android:id="@+id/contactsFragment"
+        android:name="com.messenger.ContactsFragment"
+        android:label="Contacts"
+        tools:layout="@layout/fragment_contacts">
+        <action
+            android:id="@+id/openChat"
+            app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/openGroupChat"
+            app:destination="@id/groupChatFragment" />
+        <action
+            android:id="@+id/openSessions"
+            app:destination="@id/sessionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/groupChatFragment"
+        android:name="com.messenger.GroupChatFragment"
+        android:label="Chat"
+        tools:layout="@layout/fragment_group_chat">
+        <argument
+            android:name="groupId"
+            app:argType="string" />
+        <argument
+            android:name="groupName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.messenger.ChatFragment"
+        android:label="Chat"
+        tools:layout="@layout/fragment_chat">
+        <argument
+            android:name="userId"
+            app:argType="string" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/sessionSetupFragment"
+        android:name="com.messenger.SessionSetupFragment"
+        android:label="Session Setup"
+        tools:layout="@layout/fragment_session_setup">
+    </fragment>
+    <fragment
+        android:id="@+id/sessionsFragment"
+        android:name="com.messenger.SessionsFragment"
+        android:label="Sessions"
+        tools:layout="@layout/fragment_sessions">
+        <action
+            android:id="@+id/openSessionSetup"
+            app:destination="@id/sessionSetupFragment" />
+    </fragment>
+</navigation>
